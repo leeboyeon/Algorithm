@@ -39,5 +39,6 @@ public class Ladder1 {
             }
             System.out.println("#" + test_case + " " + x);
         }
+        sc.close();
     }
 }

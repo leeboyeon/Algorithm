@@ -21,5 +21,6 @@ public class Flatten {
             }
             System.out.println("#" + i + " " + (arr[99] - arr[0]));
         }
+        sc.close();
     }
 }
