@@ -24,21 +24,21 @@ read me
 
 <h2>     :heavy_check_mark:    Programmers </h2>
   
-   번호 | 문제 | 알고리즘 | 설명
-  ----  | ----  | ----------| --------
-        | [체육복](Programmers/체육복.java)      |   Greedy       | 
-        | [키패드누르기](Programmers/pushthekeypad.java)      |  2020 카카오 인턴쉽         | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           |   
-        |       |           | 
-        |       |           |
+ 문제 | 알고리즘 | 설명
+ ----  | ----------| --------
+ [체육복](Programmers/체육복.java)      |   Greedy       | 
+ [키패드누르기](Programmers/pushthekeypad.java)      |  2020 카카오 인턴쉽         | 
+      |           | 
+       |           | 
+       |           | 
+       |           | 
+       |           | 
+      |           | 
+      |           | 
+       |           | 
+      |           |   
+      |           | 
+      |           |
         
 <h2>     :heavy_check_mark:    SWEA </h2>
   
