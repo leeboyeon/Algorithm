@@ -8,37 +8,27 @@ read me
   
   번호 | 문제 | 알고리즘 | 설명
   ----  | ----  | ----------| --------
-  1010 | [다리놓기](backjoon/src/backjoon/boj1010_다리놓기.java) | 사용한문법 | 
-  1037   | [약수](backjoon/src/backjoon/boj1037_약수.java)    | 문법    | 
-   1149   | [RGB거리](backjoon/src/backjoon/boj1149_RGB거리.java)    | 문법    | 
-   1037   | [소트인사이드](backjoon/src/backjoon/boj1427_sortInside.java)    | 문법    | 
-   1463   | [1로만들기](backjoon/src/backjoon/boj1463_1로만들기.java)    | 문법    | 
-   1541   | [잃어버린괄호](backjoon/src/backjoon/boj1541_잃어버린괄호.java)    | 문법    | 
-   1546   | [평균](backjoon/src/backjoon/boj1546_평균.java)    | 문법    | 
-   1904   | [01타일](backjoon/src/backjoon/boj1904_01타일.java)    | 문법    | 
-   1912   | [연속합](backjoon/src/backjoon/boj1912_연속합.java)    | 문법    | 
-   1932   | [정수삼각형](backjoon/src/backjoon/boj1932_정수삼각형.java)    | 문법    | 
-   1966   | [Queue](backjoon/src/backjoon/boj1966_Queue.java)    | 문법    |   
-   2504   | [괄호의값](backjoon/src/backjoon/boj2504_괄호의값.java)    | 문법    | 
-   2565   | [전깃줄](backjoon/src/backjoon/boj2565_전깃줄.java)    | 문법    |
+  1010 | [다리놓기](BOJ/boj1010_다리놓기.java) | 사용한문법 | 
+  1037   | [약수](BOJ/boj1037_약수.java)    | 문법    | 
+   1149   | [RGB거리](BOJ/boj1149_RGB거리.java)    | 문법    | 
+   1037   | [소트인사이드](BOJ/boj1427_sortInside.java)    | 문법    | 
+   1463   | [1로만들기](BOJ/boj1463_1로만들기.java)    | 문법    | 
+   1541   | [잃어버린괄호](BOJ/boj1541_잃어버린괄호.java)    | 문법    | 
+   1546   | [평균](BOJ/boj1546_평균.java)    | 문법    | 
+   1904   | [01타일](BOJ/boj1904_01타일.java)    | 문법    | 
+   1912   | [연속합](BOJ/boj1912_연속합.java)    | 문법    | 
+   1932   | [정수삼각형](BOJ/boj1932_정수삼각형.java)    | 문법    | 
+   1966   | [Queue](BOJ/boj1966_Queue.java)    | 문법    |   
+   2504   | [괄호의값](BOJ/boj2504_괄호의값.java)    | 문법    | 
+   2565   | [전깃줄](BOJ/boj2565_전깃줄.java)    | 문법    |
 
 <h2>     :heavy_check_mark:    Programmers </h2>
   
-   번호 | 문제 | 알고리즘 | 설명
-  ----  | ----  | ----------| --------
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           | 
-        |       |           |   
-        |       |           | 
-        |       |           |
+ 문제 | 알고리즘 | 설명
+ ----  | ----------| --------
+ [체육복](Programmers/체육복.java)      |   Greedy       | 
+ [키패드누르기](Programmers/pushthekeypad.java)      |  2020 카카오 인턴쉽         | 
+
         
 <h2>     :heavy_check_mark:    SWEA </h2>
   
