@@ -1,4 +1,3 @@
-read me
 
 <div align = center>
   <h1> :blossom: Algorithm :blossom:</h1>
