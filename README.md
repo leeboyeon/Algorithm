@@ -1,4 +1,3 @@
-read me
 
 <div align = center>
   <h1> :blossom: Algorithm :blossom:</h1>
@@ -21,6 +20,7 @@ read me
    1966   | [Queue](BOJ/boj1966_Queue.java)    | 문법    |   
    2504   | [괄호의값](BOJ/boj2504_괄호의값.java)    | 문법    | 
    2565   | [전깃줄](BOJ/boj2565_전깃줄.java)    | 문법    |
+   1697   | [숨바꼭질](BOJ/boj1697_숨바꼭질.java)    | Queue    |
 
 <h2>     :heavy_check_mark:    Programmers </h2>
   
