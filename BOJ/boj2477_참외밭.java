@@ -50,7 +50,6 @@ public class boj2477_참외밭 {
         int xMin = 0;
         int yMax = 0;
         int yMin = 0;
-
         xMax = Math.max(max1, max2);
         xMin = Math.abs(max1 - max2);
         yMax = Math.max(max3, max4);
