@@ -28,6 +28,7 @@ public class boj14502_연구소 {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
+        result = 0;
         setWall(0);
         System.out.println(result);
     }
@@ -35,14 +36,14 @@ public class boj14502_연구소 {
     public static void setWall(int count) {
         if (count == 3) {
             spreadVirus();
-        } else {
-            for (int i = 0; i < col; i++) {
-                for (int j = 0; j < row; j++) {
-                    if (map[i][j] == 0) {
-                        map[i][j] = 1;
-                        setWall(count + 1);
-                        map[i][j] = 0;
-                    }
+            return;
+        }
+        for (int i = 0; i < col; i++) {
+            for (int j = 0; j < row; j++) {
+                if (map[i][j] == 0) {
+                    map[i][j] = 1;
+                    setWall(count + 1);
+                    map[i][j] = 0;
                 }
             }
         }
@@ -74,8 +75,10 @@ public class boj14502_연구소 {
                 int ny = cur.col + dy[i];
 
                 if (nx >= 0 && nx < row && ny >= 0 && ny < col) {
-                    tmp[nx][ny] = 2;
-                    q.offer(new Pair(nx, ny));
+                    if (tmp[nx][ny] == 0) {
+                        tmp[nx][ny] = 2;
+                        q.offer(new Pair(nx, ny));
+                    }
                 }
             }
         }
