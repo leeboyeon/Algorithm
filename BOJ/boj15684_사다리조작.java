@@ -38,6 +38,7 @@ public class boj15684_사다리조작 {
             result = count;
             return;
         }
+
         for (int i = start; i < H + 1; i++) {
             for (int j = 1; j < N; j++) {
                 if (map[i][j] == 0 && map[i][j + 1] == 0) {
