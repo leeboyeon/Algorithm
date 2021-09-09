@@ -32,6 +32,14 @@
    2477   | [참외밭](BOJ/boj2477_참외밭.java)    |     |      
    2667   | [단지번호붙이기](BOJ/boj2667_단지번호붙이기.java)    |     |      
    3985   | [롤케이크](BOJ/boj3985_롤케이크.java)    |     |      
+   1068   | [트리](BOJ/Tree/boj1068_Tree.java)    | Tree    |     
+   1197   | [최소신장트리](BOJ/Tree/boj1197_MST.java)    |  MST |       
+   1707   | [이분그래프](BOJ/Tree/boj1707_BipartiteGraph.java)    |  Graph |       
+   1991   | [트리순회](BOJ/Tree/boj1991_트리순회.java)    |  Tree |       
+   4803   | [트리](BOJ/Tree/boj4803_Tree.java)    |  Tree |       
+   5639   | [이진검색트리](BOJ/Tree/boj5639_이진검색트리.java)    |  Tree |       
+   9372   | [상근이의 여행](BOJ/Tree/boj9372_상근이의여행.java)    |  Tree |       
+
 
 <h2>     :heavy_check_mark:    Programmers </h2>
   
