@@ -12,9 +12,10 @@ public class swea2117_홈방범서비스 {
     static int[][] map;
     static boolean[][] visit;
     static int sum;
-    static Queue<Pair> q = new LinkedList<>();
     static int[] dx = { 1, 0, -1, 0 };
     static int[] dy = { 0, 1, 0, -1 };
+    static int cur;
+    static int max;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -26,23 +27,49 @@ public class swea2117_홈방범서비스 {
             M = Integer.parseInt(st.nextToken());
             map = new int[N][N];
             visit = new boolean[N][N];
+            int countHouse = 0;
             for (int i = 0; i < N; i++) {
                 st = new StringTokenizer(br.readLine(), " ");
                 for (int j = 0; j < N; j++) {
                     map[i][j] = Integer.parseInt(st.nextToken());
+                    if (map[i][j] == 1) {
+                        countHouse++;
+                    }
                 }
             }
 
+            max = Integer.MIN_VALUE;
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    if (countHouse == max) {
+                        break;
+                    }
+                    bfs(i, j);
+                }
+            }
+            System.out.println("#" + tc + " " + max);
+
         }
     }
 
-    static class Pair {
-        int x;
-        int y;
-
-        public Pair(int x, int y) {
-            this.x = x;
-            this.y = y;
+    public static void bfs(int x, int y) {
+        for (int k = 1; k <= N + N; k++) {
+            int cnt = 0;
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    if ((Math.abs(i - x) + Math.abs(j - y)) <= k - 1) {
+                        if (map[i][j] == 1) {
+                            cnt++;
+                        }
+                    }
+                }
+            }
+            int cost = k * k + (k - 1) * (k - 1);
+            if (cost <= cnt * M) {
+                if (max < cnt)
+                    max = cnt;
+            }
         }
     }
+
 }
