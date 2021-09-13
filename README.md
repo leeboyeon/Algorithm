@@ -5,9 +5,9 @@
 
 <h2>     :heavy_check_mark:    BOJ </h2>
   
-  번호 | 문제 | 알고리즘 | 설명
-  ----  | ----  | ----------| --------
-  1010 | [다리놓기](BOJ/boj1010_다리놓기.java) | 사용한문법 | 
+  번호 | 문제 | 알고리즘 | 설명 |
+  ----  | ----  | ----------| ---------
+  1010 | [다리놓기](BOJ/boj1010_다리놓기.java) | 사용한문법 |  
   1037   | [약수](BOJ/boj1037_약수.java)    | 문법    | 
    1149   | [RGB거리](BOJ/boj1149_RGB거리.java)    | 문법    | 
    1037   | [소트인사이드](BOJ/boj1427_sortInside.java)    | 문법    | 
@@ -21,7 +21,26 @@
    2504   | [괄호의값](BOJ/boj2504_괄호의값.java)    | 문법    | 
    2565   | [전깃줄](BOJ/boj2565_전깃줄.java)    | 문법    |
    1697   | [숨바꼭질](BOJ/boj1697_숨바꼭질.java)    | Queue    |
-
+   1874   | [스택수열](BOJ/boj1874_스택수열.java)    |     |
+   1012   | [유기농배추](BOJ/boj1012_유기농배추.java)    |     |   
+   10163   | [색종이](BOJ/boj10163_색종이.java)    |     |      
+   11399   | [ATM](BOJ/boj11399_ATM.java)    |     |      
+   11725   | [트리의 부모찾기](BOJ/boj11725_트리의부모찾기.java)    | Tree    |      
+   14502   | [연구소](BOJ/boj14502_연구소.java)    |     |      
+   15684   | [사다리조작](BOJ/boj15684_사다리조작.java)    |     |      
+   2178   | [미로찾기](BOJ/boj2178_미로찾기.java)    |     |      
+   2477   | [참외밭](BOJ/boj2477_참외밭.java)    |     |      
+   2667   | [단지번호붙이기](BOJ/boj2667_단지번호붙이기.java)    |     |      
+   3985   | [롤케이크](BOJ/boj3985_롤케이크.java)    |     |      
+   1068   | [트리](BOJ/Tree/boj1068_Tree.java)    | Tree    |     
+   1197   | [최소신장트리](BOJ/Tree/boj1197_MST.java)    |  MST |       
+   1707   | [이분그래프](BOJ/Tree/boj1707_BipartiteGraph.java)    |  Graph |       
+   1991   | [트리순회](BOJ/Tree/boj1991_트리순회.java)    |  Tree |       
+   4803   | [트리](BOJ/Tree/boj4803_Tree.java)    |  Tree |       
+   5639   | [이진검색트리](BOJ/Tree/boj5639_이진검색트리.java)    |  Tree |       
+   9372   | [상근이의 여행](BOJ/Tree/boj9372_상근이의여행.java)    |  Tree |       
+   1003   | [피보나치](BOJ/DP/boj1003_fibonachi.java)    |  DP |   
+   1915  | [가장 큰 정사각형](BOJ/DP/boj1915_가장큰정사각형.java)    |  DP |   
 <h2>     :heavy_check_mark:    Programmers </h2>
   
  문제 | 알고리즘 | 설명
