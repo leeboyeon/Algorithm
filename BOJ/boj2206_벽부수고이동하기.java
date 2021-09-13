@@ -9,12 +9,11 @@ import java.util.StringTokenizer;
 
 public class boj2206_벽부수고이동하기 {
     static int[][] map;
-    static int[][] visit;
+    static boolean[][][] visit;
     static int N, M;
     static int result;
     static int[] dx = { 1, 0, -1, 0 };
     static int[] dy = { 0, 1, 0, -1 };
-    static boolean check;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,7 +21,7 @@ public class boj2206_벽부수고이동하기 {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         map = new int[N][M];
-        visit = new int[N][M];
+        visit = new boolean[N][M][2];
         String[] str = new String[N];
         for (int i = 0; i < N; i++) {
             str[i] = br.readLine();
@@ -30,54 +29,61 @@ public class boj2206_벽부수고이동하기 {
                 map[i][j] = str[i].charAt(j) - '0';
             }
         }
-
         bfs();
     }
 
     public static void bfs() {
-        Queue<Node2> q = new LinkedList<>();
-        q.add(new Node2(0, 0, 1));
-        visit[0][0] = 1;
-        Outer: while (!q.isEmpty()) {
-            Node2 node = q.poll();
-            int curx = node.x;
-            int cury = node.y;
+        Queue<Pair> q = new LinkedList<>();
+        q.add(new Pair(0, 0, 1, 0));
+        while (!q.isEmpty()) {
+            Pair cur = q.poll();
+            int x = cur.x;
+            int y = cur.y;
+
+            if (x == N - 1 && y == M - 1) {
+                result = cur.dis;
+                break;
+            }
             for (int i = 0; i < 4; i++) {
-                int nx = curx + dx[i];
-                int ny = cury + dy[i];
-
+                int nx = x + dx[i];
+                int ny = y + dy[i];
                 if (nx >= 0 && nx < N && ny >= 0 && ny < M) {
+                    if (map[nx][ny] == 0) {
+                        if (visit[nx][ny][cur.wallcnt] == false) {
 
-                    if (visit[nx][ny] == 0) {
-                        if (map[nx][ny] == 0) {
-                            q.add(new Node2(nx, ny, node.count));
-                            visit[nx][ny] = visit[curx][cury] + 1;
-                        } else if (map[nx][ny] == 1 && node.count > 0) {
-                            map[nx][ny] = 0;
-                            q.add(new Node2(nx, ny, 0));
-                            visit[nx][ny] = visit[curx][cury] + 1;
-                        } else if (map[nx][ny] == 1 && node.count == 0) {
-                            System.out.println("-1");
-                            break Outer;
+                            q.add(new Pair(nx, ny, cur.dis + 1, cur.wallcnt));
+                            visit[nx][ny][cur.wallcnt] = true;
+                        }
+                    } else {
+                        if (cur.wallcnt == 0 && visit[nx][ny][cur.wallcnt + 1] == false) {
+
+                            q.add(new Pair(nx, ny, cur.dis + 1, cur.wallcnt + 1));
+                            visit[nx][ny][cur.wallcnt + 1] = true;
                         }
                     }
                 }
             }
         }
-
-        System.out.println(visit[N - 1][M - 1]);
+        if (result == 0) {
+            System.out.println("-1");
+        } else {
+            System.out.println(result);
+        }
 
     }
-}
 
-class Node2 {
-    int x;
-    int y;
-    int count;
+    static class Pair {
+        int x;
+        int y;
+        int dis;
+        int wallcnt;
 
-    public Node2(int x, int y, int count) {
-        this.x = x;
-        this.y = y;
-        this.count = count;
+        public Pair(int x, int y, int dis, int wallcnt) {
+            this.x = x;
+            this.y = y;
+            this.dis = dis;
+            this.wallcnt = wallcnt;
+        }
     }
+
 }
