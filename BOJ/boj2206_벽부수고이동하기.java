@@ -56,7 +56,6 @@ public class boj2206_벽부수고이동하기 {
                         }
                     } else {
                         if (cur.wallcnt == 0 && visit[nx][ny][cur.wallcnt + 1] == false) {
-
                             q.add(new Pair(nx, ny, cur.dis + 1, cur.wallcnt + 1));
                             visit[nx][ny][cur.wallcnt + 1] = true;
                         }
