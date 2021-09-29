@@ -3,12 +3,11 @@ package BOJ;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
 import java.util.StringTokenizer;
 
 public class boj15684_사다리조작 {
     static int[][] map;
-    static int result;
+    static int result = 4;
     static int N, H, M;
     static int a, b;
 
@@ -33,11 +32,14 @@ public class boj15684_사다리조작 {
     }
 
     public static void dfs(int start, int count) {
-
+        if(count >= result){
+            return;
+        }
         if (move()) {
             result = count;
             return;
         }
+
 
         for (int i = start; i < H + 1; i++) {
             for (int j = 1; j < N; j++) {
@@ -53,9 +55,9 @@ public class boj15684_사다리조작 {
     }
 
     public static boolean move() {
-        for (int i = 0; i <= N; i++) {
+        for (int i = 1; i <= N; i++) {
             int x = 1, y = i;
-            for (int j = 0; j < H; j++) {
+            for (int j = 1; j < H+1; j++) {
                 if (map[x][y] == 1)
                     y++;
                 else if (map[x][y] == 2)

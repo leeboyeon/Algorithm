@@ -1,5 +1,5 @@
 package BOJ;
-
+// row,col 수정하기
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -30,6 +30,7 @@ public class boj14502_연구소 {
         }
         result = 0;
         setWall(0);
+        
         System.out.println(result);
     }
 
@@ -82,6 +83,14 @@ public class boj14502_연구소 {
                 }
             }
         }
+
+        // for(int i=0;i<col;i++){
+        //     for(int j=0;j<row;j++){
+        //         System.out.print(tmp[i][j]);
+        //     }
+        //     System.out.println();
+        // }
+
         int safe = 0;
         for (int i = 0; i < col; i++) {
             for (int j = 0; j < row; j++) {
