@@ -3,26 +3,46 @@ package BOJ.Graph;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+
 import java.util.StringTokenizer;
 
 public class boj11581_구호물자 {
-    static int[] input;
-    static ArrayList<Integer>[] list;
-    public static void main(String[] args) throws IOException{
+    static int[] check;
+    static int[][] list;
+    static int N;
+    static boolean flag;
+
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = null;
-        
-        int N = Integer.parseInt(br.readLine());
-       
-        input = new int[N+1];
-        for(int i=1;i<N+1;i++){
-            list[i] = new ArrayList<Integer>();
+        list = new int[101][101];
+        check = new int[101];
+        N = Integer.parseInt(br.readLine());
+        for (int i = 1; i < N; i++) {
+            int x = Integer.parseInt(br.readLine());
+            st = new StringTokenizer(br.readLine(), " ");
+            for (int j = 0; j < x; j++) {
+
+                int y = Integer.parseInt(st.nextToken());
+                list[i][y] = 1;
+            }
         }
-        for(int u=1;u<N;j++){
-            int 
+
+        dfs(1);
+        System.out.println("NO CYCLE");
+
+    }
+
+    public static void dfs(int v) {
+        check[v] = 1;
+        for (int i = 1; i < N; i++) {
+            if (list[v][i] == 1) {
+                System.out.println("CYCLE");
+                System.exit(0);
+            } else if (check[i] == 0) {
+                dfs(i);
+            }
         }
+        check[v] = -1;
     }
 }
