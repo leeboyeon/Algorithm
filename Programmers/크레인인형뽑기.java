@@ -13,6 +13,7 @@ public class 크레인인형뽑기 {
         int[] moves = {1,5,3,5,1,2,1,4};
         int result = solution(board,moves);
         System.out.println(result);
+        
     }
     public static int solution(int[][] board, int[] moves) {
         int answer = 0;
