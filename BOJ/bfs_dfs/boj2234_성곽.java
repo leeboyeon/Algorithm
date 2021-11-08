@@ -29,6 +29,7 @@ public class boj2234_성곽 {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
+
         int max = 0;
         int roomCnt = 0;
         for (int i = 0; i < m; i++) {
