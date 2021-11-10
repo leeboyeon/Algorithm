@@ -40,7 +40,7 @@ public class boj2468_안전영역 {
         }
 
         int maxCnt = 0;
-        for (int k = max; k > 0; k--) {
+        for (int k = max; k >= 0; k--) {
             visit = new boolean[N][N];
             int count = 0;
             for (int i = 0; i < N; i++) {
@@ -53,13 +53,14 @@ public class boj2468_안전영역 {
             }
             maxCnt = Math.max(maxCnt, count);
         }
-        if (max == 0) {
-            System.out.println(0);
-        } else if (max == 1) {
-            System.out.println(1);
-        } else {
-            System.out.println(maxCnt);
-        }
+        // if (max == 0) {
+        // System.out.println(0);
+        // } else if (max == 1) {
+        // System.out.println(1);
+        // } else {
+        // System.out.println(maxCnt);
+        // }
+        System.out.println(maxCnt);
 
     }
 
