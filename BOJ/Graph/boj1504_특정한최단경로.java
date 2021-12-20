@@ -56,7 +56,12 @@ public class boj1504_특정한최단경로 {
 
         if (via1 == 1 || via2 == 1) {
             if (via1 == N || via2 == N) {
-                System.out.println(graph[1][N]);
+                if (graph[1][N] >= INF) {
+                    System.out.println("-1");
+                } else {
+                    System.out.println(graph[1][N]);
+
+                }
             }
         } else if (result1 >= INF || result2 >= INF) {
             System.out.println("-1");
