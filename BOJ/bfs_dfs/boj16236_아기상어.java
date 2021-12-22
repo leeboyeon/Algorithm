@@ -11,12 +11,17 @@ public class boj16236_아기상어 {
     static int[][] map;
     static Queue<Pair> shark;
     static Queue<Pair> fish;
-    static int[] dx = { 1, 0, -1, 0 };
-    static int[] dy = { 0, 1, 0, -1 };
+    static int[] dx = { 0, -1, 0, 1 };
+    static int[] dy = { -1, 0, 1, 0 };
     static int max;
     static boolean[][] visit;
-
-    static class Pair {
+    
+    /**
+     * size가 같은것을 상어의 크기만큼 먹어야
+     * 다음크기로 넘어갈 수 있다.
+     */
+    
+     static class Pair {
         int x;
         int y;
         int size;
