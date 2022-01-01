@@ -2,14 +2,31 @@ package BOJ.Graph.dijkstra;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class boj5972_택배배송 {
     static int N, M;
     static int[][] graph;
-    static int INF = Integer.MAX_VALUE;
-    static int dist[];
+    static int INF = 50000001;
+    static int[] dist;
+    static ArrayList<Pair>[] list;
+
+    static class Pair implements Comparable<Pair> {
+        int to, weight;
+
+        Pair(int to, int weight) {
+            this.to = to;
+            this.weight = weight;
+        }
+
+        @Override
+        public int compareTo(Pair o) {
+            return this.weight - o.weight;
+        }
+    }
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,15 +35,11 @@ public class boj5972_택배배송 {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        graph = new int[N + 1][N + 1];
         dist = new int[N + 1];
+        list = new ArrayList[N + 1];
+
         for (int i = 0; i < N + 1; i++) {
-            for (int j = 0; j < N + 1; j++) {
-                if (i == j)
-                    graph[i][j] = 0;
-                else
-                    graph[i][j] = INF;
-            }
+            list[i] = new ArrayList<>();
         }
 
         for (int i = 0; i < M; i++) {
@@ -35,37 +48,39 @@ public class boj5972_택배배송 {
             int v2 = Integer.parseInt(st.nextToken());
             int cost = Integer.parseInt(st.nextToken());
 
-            graph[v1][v2] = cost;
-            graph[v2][v1] = cost;
+            list[v1].add(new Pair(v2, cost));
+            list[v2].add(new Pair(v1, cost));
         }
 
         dijksta(1);
 
-        for (int i = 0; i < N + 1; i++) {
-            System.out.print(dist[i] + " ");
-        }
+        System.out.println(dist[N]);
     }
 
     static void dijksta(int start) {
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        PriorityQueue<Pair> pq = new PriorityQueue<>();
         boolean[] visit = new boolean[N + 1];
-        for (int i = 0; i < N + 1; i++) {
-            dist[i] = INF;
-        }
+        Arrays.fill(dist, INF);
+
         dist[start] = 0;
-        pq.add(new int[] { 0, start });
+        pq.offer(new Pair(start, 0));
 
         while (!pq.isEmpty()) {
-            int[] cur = pq.poll();
-            int u = cur[1];
-            if (visit[u])
+            Pair cur = pq.poll();
+            int dest = cur.to;
+
+            if (visit[dest]) {
                 continue;
-            visit[u] = true;
-            for (int v = 1; v < N + 1; v++) {
-                if (dist[v] > dist[u] + graph[u][v]) {
-                    dist[v] = dist[u] + graph[u][v];
-                    pq.offer(new int[] { dist[v], v });
+            } else {
+                visit[cur.to] = true;
+            }
+
+            for (Pair next : list[dest]) {
+                if (dist[next.to] > dist[dest] + next.weight) {
+                    dist[next.to] = dist[dest] + next.weight;
+                    pq.offer(new Pair(next.to, dist[next.to]));
                 }
+
             }
         }
     }
