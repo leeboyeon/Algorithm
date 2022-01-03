@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class boj1916_최소비용구하기 {
     static int N, M;
-    static int INF = 1000000000;
+    static int INF = 1000000001;
     static ArrayList<Pair>[] map;
     static int[] dist;
 
