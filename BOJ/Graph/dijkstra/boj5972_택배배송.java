@@ -7,6 +7,11 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
+/**
+ * 모든 정점을 연결할꺼면 prim
+ * 시작점과 끝점을 모두 알면 dijkstra
+ * INF = Integer.MAX_VALUE/2
+ */
 public class boj5972_택배배송 {
     static int N, M;
     static int[][] graph;
