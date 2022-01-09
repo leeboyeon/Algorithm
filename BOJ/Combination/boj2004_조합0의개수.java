@@ -1,7 +1,9 @@
 package BOJ.Combination;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -9,6 +11,7 @@ public class boj2004_조합0의개수 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
@@ -19,19 +22,15 @@ public class boj2004_조합0의개수 {
         two = getCount(N, 2) - getCount(K, 2) - getCount((N - K), 2);
         five = getCount(N, 5) - getCount(K, 5) - getCount((N - K), 5);
 
-        long result = Math.min(two, five);
-        System.out.println(result);
+        System.out.println(Math.min(two, five));
     }
 
     public static long getCount(int N, int value) {
-        long count = 0;
-        for (int i = value; i <= N; i += value) {
-            int tmp = i;
+        int count = 0;
 
-            while (tmp != 0 && tmp % value == 0) {
-                count++;
-                tmp /= value;
-            }
+        while (N >= value) {
+            count += N / value;
+            N /= value;
         }
 
         return count;
