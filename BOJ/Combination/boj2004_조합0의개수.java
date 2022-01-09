@@ -13,29 +13,27 @@ public class boj2004_조합0의개수 {
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
 
-        long[][] comb = new long[N + 1][N + 1];
+        long two = 0;
+        long five = 0;
 
-        for (int i = 2; i <= N; i++) {
-            for (int j = 0; j <= i && j <= K; j++) {
-                if (i == j || j == 0) {
-                    comb[i][j] = 1;
-                } else {
-                    comb[i][j] = comb[i - 1][j - 1] + comb[i - 1][j];
-                }
-            }
-        }
-        String result = String.valueOf(comb[N][K]);
-        int zero = 0;
-        for (int i = result.length() - 1; i >= 0; i--) {
-            int value = result.charAt(i) - '0';
-            if (value == 0) {
-                zero++;
-            }
-            if (value != 0) {
-                System.out.println(zero);
-                break;
+        two = getCount(N, 2) - getCount(K, 2) - getCount((N - K), 2);
+        five = getCount(N, 5) - getCount(K, 5) - getCount((N - K), 5);
+
+        long result = Math.min(two, five);
+        System.out.println(result);
+    }
+
+    public static long getCount(int N, int value) {
+        long count = 0;
+        for (int i = value; i <= N; i += value) {
+            int tmp = i;
+
+            while (tmp != 0 && tmp % value == 0) {
+                count++;
+                tmp /= value;
             }
         }
 
+        return count;
     }
 }
