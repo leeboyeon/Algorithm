@@ -53,6 +53,7 @@ public class boj18405_경쟁적전염 {
                 }
             }
         }
+        
         st = new StringTokenizer(br.readLine(), " ");
         S = Integer.parseInt(st.nextToken());
         X = Integer.parseInt(st.nextToken());
