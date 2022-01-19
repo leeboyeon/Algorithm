@@ -18,6 +18,17 @@ public class boj1107_리모컨 {
 
         button = new int[M];
         broken = new boolean[10];
+
+        if (M == 0) {
+            if (N == 99 || N == 101) {
+                System.out.println(1);
+                return;
+            }
+
+            String str = String.valueOf(N);
+            System.out.println(str.length());
+            return;
+        }
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         for (int i = 0; i < M; i++) {
             int value = Integer.parseInt(st.nextToken());
