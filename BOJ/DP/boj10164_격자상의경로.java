@@ -19,7 +19,7 @@ public class boj10164_격자상의경로 {
             System.out.println(solution(N - 1, M - 1));
             return;
         } else {
-            int y = K / M;
+            int y = K / N;
             int x = K % M - 1;
             if (x < 0)
                 x = M - 1;
@@ -38,18 +38,18 @@ public class boj10164_격자상의경로 {
         int[][] dp = new int[X + 1][Y + 1];
 
         for (int i = 1; i < X + 1; i++) {
-            dp[0][i] = 1;
+            dp[i][0] = 1;
         }
         for (int i = 1; i < Y + 1; i++) {
-            dp[i][0] = 1;
+            dp[0][i] = 1;
         }
 
         for (int j = 1; j < Y + 1; j++) {
             for (int i = 1; i < X + 1; i++) {
-                dp[j][i] = dp[j - 1][i] + dp[j][i - 1];
+                dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
             }
         }
 
-        return dp[Y][X];
+        return dp[X][Y];
     }
 }
