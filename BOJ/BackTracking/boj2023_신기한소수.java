@@ -31,9 +31,11 @@ public class boj2023_신기한소수 {
     static boolean isPrime(int value) {
         if (value < 2) {
             return false;
+            // 소수아님
         }
 
         for (int i = 2; i <= Math.sqrt(value); i++) {
+            // 소수아님
             if (value % i == 0)
                 return false;
         }
