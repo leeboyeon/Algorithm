@@ -59,7 +59,7 @@ public class boj16197_두동전 {
             Pair cur1 = q.poll();
             Pair cur2 = q.poll();
 
-            if (cur1.count >= 10) {
+            if (cur1.count + 1 > 10 || cur2.count + 1 > 10) {
                 System.out.println(-1);
                 return;
             }
@@ -81,8 +81,10 @@ public class boj16197_두동전 {
                 if (flag1 == true && flag2 == true) {
                     continue;
                 }
+                int min = Integer.MAX_VALUE;
                 if (flag1 == true || flag2 == true) {
-                    System.out.println(cur1.count + 1);
+                    min = Math.min(cur1.count, cur2.count);
+                    System.out.println(min + 1);
                     return;
                 }
                 if (arr[nx1][ny1] == '#' && arr[nx2][ny2] == '#') {
@@ -98,7 +100,7 @@ public class boj16197_두동전 {
                 }
 
                 q.offer(new Pair(nx1, ny1, cur1.count + 1));
-                q.offer(new Pair(nx2, ny2, cur1.count + 1));
+                q.offer(new Pair(nx2, ny2, cur2.count + 1));
 
             }
         }

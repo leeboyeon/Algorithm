@@ -50,11 +50,10 @@ public class boj1504_특정한최단경로 {
         long result1 = 0;
         long result2 = 0;
         // 1-> via1 -> via2 -> N
-        // 1->via2->via1->N
+        // 1-> via2 -> via1 -> N
         result1 = graph[1][via1] + graph[via1][via2] + graph[via2][N];
         result2 = graph[1][via2] + graph[via2][via1] + graph[via1][N];
 
-        
         if (via1 == 1 || via2 == 1) {
             if (via1 == N || via2 == N) {
                 if (graph[1][N] >= INF) {
