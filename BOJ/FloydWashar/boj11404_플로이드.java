@@ -19,7 +19,13 @@ public class boj11404_플로이드 {
 
         graph = new int[N + 1][N + 1];
         for (int i = 0; i <= N; i++) {
-            Arrays.fill(graph[i], INF);
+            for (int j = 0; j <= N; j++) {
+                graph[i][j] = INF;
+                if (i == j) {
+                    graph[i][j] = 0;
+                }
+
+            }
         }
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine(), " ");
@@ -43,9 +49,10 @@ public class boj11404_플로이드 {
 
         for (int i = 1; i < N + 1; i++) {
             for (int j = 1; j < N + 1; j++) {
-                if (i == j) {
+                if (graph[i][j] == INF) {
                     graph[i][j] = 0;
                 }
+
                 System.out.print(graph[i][j] + " ");
 
             }
