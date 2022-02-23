@@ -26,6 +26,7 @@ public class boj9251_LCS {
                 }
             }
         }
+        
         System.out.println(lcs[len2][len1]);
     }
 }

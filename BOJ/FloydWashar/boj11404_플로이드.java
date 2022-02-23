@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 public class boj11404_플로이드 {
     static int[][] graph;
     static int N, M;
-    static int INF = 100000;
+    static int INF = 100000001;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
