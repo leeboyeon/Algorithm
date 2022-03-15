@@ -36,15 +36,15 @@ public class boj1719_택배 {
             graph[v1][v2] = cost;
             graph[v2][v1] = cost;
 
-            count[v1][v2] = v1;
-            count[v2][v1] = v2;
+            count[v1][v2] = v2;
+            count[v2][v1] = v1;
         }
 
         for (int via = 1; via < N + 1; via++) {
             for (int from = 1; from < N + 1; from++) {
                 for (int to = 1; to < N + 1; to++) {
                     if (graph[from][to] > graph[from][via] + graph[via][to]) {
-                        count[from][to] = count[via][to];
+                        count[from][to] = count[from][via];
                         graph[from][to] = graph[from][via] + graph[via][to];
                     }
                 }
@@ -55,7 +55,7 @@ public class boj1719_택배 {
                 if (i == j) {
                     System.out.print("- ");
                 } else {
-                    System.out.print(count[j][i] + " ");
+                    System.out.print(count[i][j] + " ");
                 }
             }
             System.out.println();
