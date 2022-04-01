@@ -28,78 +28,62 @@ public class boj14891_톱니바퀴 {
             int lotation = Integer.parseInt(st.nextToken());
             int direction = Integer.parseInt(st.nextToken());
 
-            for (int j = 0; j < 7; j++) {
-                if (direction == 1) {
-                    if (lotation == 4) {
-                        map[lotation][j] = map[lotation][j + 1];
-                        map[lotation][0] = map[lotation][7];
-                        break;
-                    }
-                    if (map[lotation + 1][j] != map[lotation][j]) {
-                        map[lotation][j] = map[lotation][j + 1];
-                        map[lotation][0] = map[lotation][7];
-
-                        map[lotation + 1][j] = map[lotation + 1][j + 1];
-                        map[lotation + 1][0] = map[lotation + 1][7];
-                    } else {
-                        map[lotation][j] = map[lotation][j + 1];
-                        map[lotation][0] = map[lotation][7];
-                    }
-
-                } else {
-                    if (lotation == 4) {
-                        map[lotation][j + 1] = map[lotation][j];
-                        map[lotation][7] = map[lotation][0];
-                        break;
-                    }
-                    if (map[lotation + 1][j] != map[lotation][j]) {
-                        map[lotation][j + 1] = map[lotation][j];
-                        map[lotation][7] = map[lotation][0];
-
-                        map[lotation + 1][j + 1] = map[lotation + 1][j];
-                        map[lotation + 1][7] = map[lotation + 1][0];
-                    } else {
-                        map[lotation][j + 1] = map[lotation][j];
-                        map[lotation][7] = map[lotation][0];
-                    }
-                }
-            }
-
+            checkSide(lotation, direction);
         }
         int result = 0;
-        int step1 = map[1][0];
-        int step2 = map[2][0];
-        int step3 = map[3][0];
-        int step4 = map[4][0];
-
-        if (step1 == 0) {
-            result += 0;
+        int[] value = { 0, 1, 2, 4, 8 };
+        for (int i = 1; i <= 4; i++) {
+            if (map[i][0] == 1) {
+                result += value[i];
+            }
+            // result += map[i][0];
         }
-        if (step1 == 1) {
-            result += 1;
-        }
-
-        if (step2 == 0) {
-            result += 0;
-        }
-        if (step2 == 1) {
-            result += 2;
-        }
-
-        if (step3 == 0) {
-            result += 0;
-        }
-        if (step3 == 1) {
-            result += 4;
-        }
-
-        if (step4 == 0) {
-            result += 0;
-        }
-        if (step4 == 1) {
-            result += 8;
-        }
-
         System.out.println(result);
+
+    }
+
+    static void moveTire(int lotation, int direction) {
+        if (direction == 1) {
+            // 시계방향 회전
+            int tmp = map[lotation][7];
+            for (int i = 7; i > 0; i--) {
+                map[lotation][i] = map[lotation][i - 1];
+            }
+            map[lotation][0] = tmp;
+        } else {
+            // 반시계방향 회전
+            int tmp = map[lotation][0];
+            for (int i = 0; i < 7; i++) {
+                map[lotation][i] = map[lotation][i + 1];
+            }
+            map[lotation][7] = tmp;
+        }
+    }
+
+    static void checkSide(int lotation, int direction) {
+        // 왼쪽 체크
+        leftCheck(lotation - 1, -direction);
+        rightCheck(lotation + 1, -direction);
+        moveTire(lotation, direction);
+    }
+
+    static void leftCheck(int lotation, int direction) {
+        if (lotation >= 1) {
+            if (map[lotation][2] == map[lotation + 1][6])
+                return;
+            // 한칸더 왼쪽도 확인
+            leftCheck(lotation - 1, -direction);
+            moveTire(lotation, direction);
+        }
+    }
+
+    static void rightCheck(int lotation, int direction) {
+        if (lotation <= 4) {
+            if (map[lotation][6] == map[lotation - 1][2])
+                return;
+            // 한칸더 오른쪽도 확인
+            rightCheck(lotation + 1, -direction);
+            moveTire(lotation, direction);
+        }
     }
 }
