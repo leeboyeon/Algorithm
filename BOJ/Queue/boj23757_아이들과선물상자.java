@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
@@ -17,45 +19,34 @@ public class boj23757_아이들과선물상자 {
 
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        Queue<Integer> present = new LinkedList<>();
-        // int[] present = new int[N];
+        PriorityQueue<Integer> present = new PriorityQueue<>(Collections.reverseOrder());
 
         st = new StringTokenizer(br.readLine(), " ");
-        int max = 0;
         for (int i = 0; i < N; i++) {
             int value = Integer.parseInt(st.nextToken());
-            present.add(value);
-            max = Math.max(max, value);
+            present.offer(value);
+
         }
         st = new StringTokenizer(br.readLine(), " ");
-        Queue<Integer> childs = new LinkedList<>();
-        for (int i = 0; i < M; i++) {
-            childs.add(Integer.parseInt(st.nextToken()));
-        }
         boolean flag = false;
-        while (!childs.isEmpty()) {
-            if (childs.peek() > max) {
+        for (int i = 0; i < M; i++) {
+            int child = Integer.parseInt(st.nextToken());
+            if (present.peek() >= child) {
+                present.offer(present.peek() - child);
+                present.poll();
+            } else {
                 flag = true;
-                break;
-            }
-            if (present.peek() >= childs.peek()) {
-                int curP = present.poll();
-                int curC = childs.poll();
-                curP -= curC;
-                present.offer(curP);
             }
         }
+
         if (flag == true) {
             sb.append("0");
-            // System.out.println(0);
         } else {
             sb.append("1");
-            // System.out.println(1);
         }
         bw.write(sb.toString());
         bw.flush();
         bw.close();
         br.close();
-        // System.out.println(sb.toString());
     }
 }
